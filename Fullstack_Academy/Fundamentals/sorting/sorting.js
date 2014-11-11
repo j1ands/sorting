@@ -1,22 +1,22 @@
-//var left,right;
-
-var bubbleSort = function(arr){
+var bubbleSort = function(arr)
+{
 var noSwap;
 var temp = 0;
 var len = arr.length - 1;	
-	do{
+	do
+	{
 		noSwap = true;;
-		for(var i = 0; i<len; i++){
-			if(arr[i]>arr[i+1]){
+		for(var i = 0; i<len; i++)
+		{
+			if(arr[i]>arr[i+1])
+			{
 				temp = arr[i];
 				arr[i]= arr[i+1];
 				arr[i+1]= temp;
-				//counter++;
 				noSwap = false;
 			}
 		}
 		len--;
-		//len=0;
 	}while(!noSwap);
 return arr;
 }
@@ -31,30 +31,12 @@ var mergeSort = function(arr)
 	{
 		return arr;
 	}
-	
-	// left = mergeSort(arr.slice(0, (arr.length / 2)));
-	// right = mergeSort(arr.slice(arr.length / 2));
 
-	//left = arr;
 	right = mergeSort(arr.splice(arr.length / 2));
 	left = mergeSort(arr);
-	//right = mergeSort(right);
-
-	// this.left = left;
-	// this.right = right;
-	//leftAndRight(left,right);
 
 	return merge(left,right);
-	//return result.concat(merge(left,right));
 }
-
-// var leftAndRight = function(left,right)
-// {
-// 	var result = []
-// 	result.push(left);
-// 	result.push(right);
-// 	return result;
-// }
 
 var merge = function(left, right)
 {
@@ -66,7 +48,6 @@ var merge = function(left, right)
 	
 	while(i<leftLen || j<rightLen)
 	{
-		//debugger;
 		if(left[i] < right[j])
 		{
 			merged.push(left[i]);
@@ -83,28 +64,11 @@ var merge = function(left, right)
 		{
 			merged.push(left[i]);
 			i++;
+			j++;
 		}
-	}
-
-	//merged = merged.concat(rightLen);
-
-
-	// while((left[0]+1) || (right[0]+1)){
-	// 	if(left[0]<right[0]){
-	// 		merged.push(left.shift());
-	// 	}
-	// 	else if(right[0] + 1) {
-	// 		merged.push(right.shift());
-	// 	}
-	// 	else{
-	// 		merged.push(left.shift());	
-	// 	}
-	// }
-
+	}	
 
 	return merged;
-
-
 }
 
 for(var i=10; i < 20; i++) {
