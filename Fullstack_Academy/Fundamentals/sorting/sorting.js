@@ -58,25 +58,25 @@ var mergeSort = function(arr)
 
 var merge = function(left, right)
 {
-	var merged = left+right;
+	var merged = [];
 	var leftLen = left.length;
 	var rightLen = right.length;
 	var i = 0;
 	var j = 0;
 	
-	while(i+j<merged.length)
+	while(i<leftLen || j<rightLen)
 	{
 		//debugger;
 		if(left[i] < right[j])
 		{
-			//merged.push(left[i]);
-			merged[i+j] = left[i];
+			merged.push(left[i]);
 			i++;
 		}
-		else if(right[j])
+		//else if(right[j] != undefined)
+		//else if(right[j] + 1)
+		else if(!isNaN(right[j]))
 		{
-			//merged.push(right[j]);
-			merged[i+j] = right[j];
+			merged.push(right[j]);
 			j++;
 		}
 		else
@@ -86,46 +86,49 @@ var merge = function(left, right)
 		}
 	}
 
-	return merged;
-
 	//merged = merged.concat(rightLen);
 
 
-	// while(left[0] || right[0]){
+	// while((left[0]+1) || (right[0]+1)){
 	// 	if(left[0]<right[0]){
 	// 		merged.push(left.shift());
 	// 	}
-	// 	else if(right[0]) {
+	// 	else if(right[0] + 1) {
 	// 		merged.push(right.shift());
 	// 	}
 	// 	else{
 	// 		merged.push(left.shift());	
 	// 	}
 	// }
+
+
+	return merged;
+
+
 }
 
-// for(var i=2; i < 7; i++) {
-//     var num_items = Math.pow(2,i);
-//     var native_test_array = [];
-//     //var b_test_array = [];
-//     var m_test_array = []
-//     for(var j=0; j < num_items; j++) {
-//         var rand = Math.floor(Math.random() * num_items);
-//         native_test_array.push(rand);
-//         //b_test_array.push(rand);
-//         m_test_array.push(rand);
-//     }
+for(var i=10; i < 20; i++) {
+    var num_items = Math.pow(2,i);
+    var native_test_array = [];
+    //var b_test_array = [];
+    var m_test_array = []
+    for(var j=0; j < num_items; j++) {
+        var rand = Math.floor(Math.random() * num_items);
+        native_test_array.push(rand);
+        //b_test_array.push(rand);
+        m_test_array.push(rand);
+    }
  
-//     console.time(num_items + "native");
-//     native_test_array.sort();
-//     console.timeEnd(num_items + "native");
+    console.time(num_items + "native");
+    native_test_array.sort();
+    console.timeEnd(num_items + "native");
  
-//     // console.time(num_items + "bubble");
-//     // bubbleSort(b_test_array);
-//     // console.timeEnd(num_items + "bubble");
+    // console.time(num_items + "bubble");
+    // bubbleSort(b_test_array);
+    // console.timeEnd(num_items + "bubble");
  
-//     console.time(num_items + "merge");
-//     debugger;
-//     mergeSort(m_test_array);
-//     console.timeEnd(num_items + "merge");  
-// }
+    console.time(num_items + "merge");
+    //debugger;
+    mergeSort(m_test_array);
+    console.timeEnd(num_items + "merge");  
+}
