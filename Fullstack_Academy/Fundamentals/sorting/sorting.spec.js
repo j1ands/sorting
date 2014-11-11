@@ -21,7 +21,7 @@ describe("Merge Sort", function() {
     });
 
     it("able to sort an array", function(){
-		expect(mergeSort([2,4,3,5,1])).toEqual([1,2,3,4,5]);
+		expect(mergeSort([2,4,3,5,1,10,9,8,7,6])).toEqual([1,2,3,4,5,6,7,8,9,10]);
 	});
 
     it("able to split an array into two halvess", function() {
